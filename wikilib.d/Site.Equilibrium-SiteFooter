@@ -1,0 +1,24 @@
+version=pmwiki-2.2.0 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.8 (.NET CLR 3.5.30729)
+author=
+charset=ISO-8859-1
+csum=
+ctime=1238904311
+host=127.0.0.1
+name=Site.Equilibrium-SiteFooter
+rev=4
+targets=
+text=>>floatLeft%3c%3cPage last modified on {$LastModified}%0a>>%3c%3c%0a
+time=1239480182
+author:1239480182=
+diff:1239480182:1238944490:=2a3,5%0a> (:if false:)Thanks for keeping this information in place! http://creativecommons.org/licenses/by-sa/3.0/us/(:if:)%0a> >>floatRight%3c%3c[[http://pmwiki.com/Cookbook/Equilibrium | Equilibrium]] theme originally by [[http://madebyon.com/ | Made By On]], adapted by [[http://solidgone.org/Skins | David Gilbert]], powered by [[http://pmwiki.com/ | PmWiki]]%0a> >>%3c%3c%0a\ No newline at end of file%0a
+host:1239480182=127.0.0.1
+author:1238944490=
+diff:1238944490:1238904349:=3c3%0a%3c (:if false:)Thanks for keeping this information in place! http://creativecommons.org/licenses/by-sa/3.0/us/(:if:)%0a---%0a> (:if false:)Thanks for keeping this information in place!(:if:)%0a
+host:1238944490=127.0.0.1
+author:1238904349=
+diff:1238904349:1238904311:=2a3%0a> %0a4c5%0a%3c >>floatRight%3c%3c[[http://pmwiki.com/Cookbook/Equilibrium | Equilibrium]] theme originally by [[http://madebyon.com/ | Made By On]], adapted by [[http://solidgone.org/Skins | David Gilbert]], powered by [[http://pmwiki.com/ | PmWiki]]%0a---%0a> >>floatLeft%3c%3c[[http://pmwiki.com/Cookbook/Equilibrium | Equilibrium]] theme originally by [[http://madebyon.com/ | Made By On]], adapted by [[http://solidgone.org/Skins | David Gilbert]], powered by [[http://pmwiki.com/ | PmWiki]]%0a
+host:1238904349=127.0.0.1
+author:1238904311=
+diff:1238904311:1238904311:=1,6d0%0a%3c >>floatLeft%3c%3cPage last modified on {$LastModified}%0a%3c >>%3c%3c%0a%3c %0a%3c (:if false:)Thanks for keeping this information in place!(:if:)%0a%3c >>floatLeft%3c%3c[[http://pmwiki.com/Cookbook/Equilibrium | Equilibrium]] theme originally by [[http://madebyon.com/ | Made By On]], adapted by [[http://solidgone.org/Skins | David Gilbert]], powered by [[http://pmwiki.com/ | PmWiki]]%0a%3c >>%3c%3c%0a\ No newline at end of file%0a
+host:1238904311=127.0.0.1
