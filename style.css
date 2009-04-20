@@ -38,7 +38,7 @@ STRUCTURE
 html, body{height:100%}
 body{font-size:62.5%; font-family:Arial,Helvetica,sans-serif; color:#222; margin:0 auto -80px; text-align:center}
 #page-wrap{width:960px; margin:0 auto; padding-left:10px; padding-right:10px; text-align:left}
-.content{width:680px; float:left; margin-top: 9.3px;}
+.content{width:680px; float:left}
 
 /*
 -----------------------------------------
@@ -53,7 +53,7 @@ p a, p a:visited,
 p a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
 h1, strong{font-size:1.4em; font-weight:bold}
-h4, h2, #sidebar .sidehead{font-size:1.8em; color:#222; text-transform:uppercase; padding-bottom:4px; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:28px; font-weight:bold}
+h4, h2, #sidebar .sidehead, #wikitext h2.section-head{font-size:1.8em; color:#222; text-transform:uppercase; padding-bottom:4px; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:28px; font-weight:bold}
 h3{border-bottom:4px solid #C9C9C9; color:#222; font-size:2.2em; font-weight:bold; padding-bottom:4px}
 h3 a{text-decoration:none; color:#222}
 
@@ -105,29 +105,41 @@ ul#nav li.current_page_item a:active,
 FEATURED
 -----------------------------------------
 */
-.front-post{width:303px; margin-right:25px; float:left}
+.front-post,
+.featured .post-wrap{width:303px; margin-bottom:3.5em; margin-right:25px; float:left}
 
 .front-post-last{width:303px; float:left}
 
-.featured-content{position:relative; width:303px}
+.featured-content,
+.featured .post-content{position:relative; width:303px;margin-bottom:3.5em}
 
-.featured-content p{margin-top:1em}
+.featured-content p,
+.featured .post-content p{margin-top:1em}
 
-.featured-post{position:relative; width:303px; height:231px; margin-bottom:1.2em}
+.featured-post,
+.featured .post-head{position:relative; width:303px; margin-bottom:1.2em} /*height:231px; */
 
-.featured-title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1.1em; text-transform:none; padding-bottom:0; border-bottom:0}
+.featured-title h2,
+#wikitext .featured .title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1.1em; text-transform:none; padding-bottom:0; border-bottom:0}
 
-.featured-title h2 a{font-size:1.1em; display:block; color:#0B96D0; text-decoration:none; border-bottom:0}
+.featured-title h2 a,
+.featured .title h2 a{font-size:1.1em; display:block; color:#0B96D0; text-decoration:none; border-bottom:0}
 
-.featured-title h2 a:hover{color:#fff}
+.featured-title h2 a:hover,
+.featured .title h2 a:hover{color:#fff}
 
-.featured-title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; position:absolute; z-index:2}
+.featured-title,
+.featured .title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; position:absolute; z-index:2}
 
-.featured-image{position:absolute; z-index:1}
+.featured-image,
+.featured img{position:relative; height:231px; z-index:1}
 
-.featured-content h2{margin-top:15px}
-.featured-content h2 a{color:#0b96d0; text-decoration:none}
-.featured-content h2 a:hover{color:#000}
+.featured-content h2,
+.featured .post-content h2{margin-top:15px}
+.featured-content h2 a,
+.featured .post-content h2 a{color:#0b96d0; text-decoration:none}
+.featured-content h2 a:hover,
+.featured .post-content h2 a{color:#000}
 
 /*
 -----------------------------------------
@@ -197,7 +209,8 @@ POSTMETA
 */
 .postMeta{font-size:1.2em; margin-bottom:18px; margin-top:8px; padding-bottom:24px; border-bottom:1px solid #c9c9c9}
 
-.postMeta-featured{margin-top:8px; font-size:1.2em; width:303px}
+.postMeta-featured,
+.featured .postMeta{margin-top:8px; font-size:1.2em; width:303px; margin-bottom:0; padding-bottom:0; border-bottom:none}
 
 .postMeta-front{margin-top:8px; font-size:1.2em}
 
@@ -206,6 +219,7 @@ POSTMETA
 .postMeta span.date,
 .postMeta-post span.date,
 .postMeta-featured span.date,
+.featured .postMeta span.date,
 .postMeta-front span.date{clear:both;color:#8a8a8a; float:left}
 
 .postMeta span.comments a,
@@ -213,14 +227,17 @@ POSTMETA
 .postMeta-post span.comments a,
 .postMeta-post span.date a,
 .postMeta-featured span.comments a,
+.featured .postMeta span.comments a,
 .postMeta-featured span.date a,
+.featured .postMeta span.date a,
 .postMeta-front span.comments a,
 .postMeta-front span.date a{float:left; color:#8a8a8a; text-decoration:none}
 
 .postMeta span.comments,
 .postMeta-featured span.comments,
+.featured .postMeta span.comments,
 .postMeta-post span.comments,
-.postMeta-front span.comments{float:right; background:#FFF url(images/comment.gif) no-repeat left center; padding-left:15px; margin-left:2px}
+.postMeta-front span.comments{color:#8a8a8a;float:right; background:#FFF url(images/comment.gif) no-repeat left center; padding-left:15px; margin-left:2px}
 
 /*
 -----------------------------------------
@@ -299,7 +316,7 @@ PMWIKI
 #top .createlink, #top ul .createlink { display: none !important}
 .pageactions {float:right; margin-top:-105px; clear:right}
 .pageactions li a {font-size:9px !important; color: #C9C9C9 !important; text-transform: lowercase !important}
-.pagegroup {color: #8A8A8A; font-size:1.1em; text-transform: lowercase;text-decoration: none}
+.pagegroup {display:block; margin-top: 9.3px;color: #8A8A8A; font-size:1.1em; text-transform: lowercase;text-decoration: none}
  a.createlinktext { text-decoration:none; border-bottom:none; }
 a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:bold; font-size:smaller; border-bottom:none; }
 .readmore {display: block;	margin-top: 10px;	padding-bottom: 10px; font-weight: bold;}
