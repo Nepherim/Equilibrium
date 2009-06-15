@@ -6,10 +6,109 @@ csum=
 ctime=1238968598
 host=127.0.0.1
 name=Site.BlogIt-SkinTemplate-equilibrium
-rev=61
+rev=94
 targets=
-text=!!! #multi-entry-view%0aParameters: pagenav, perpage%0a%0a[@%0a(:if false:)[[#multi-entry-view]](:ifend:)%0a(:template defaults order=-$:entrydate:)%0a(:template each:)%0a(:div9990 class="post-wrap":)%0a(:div9991 class="post-head":)%0a(:div9992 class="title":)%0a!! [[{=$FullName}|{=$Title}]]%0a(:div9992end:)%0a(:div9991end:)%0a(:div9991 class="content-wrap":)%0a(:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a(:div9993end:)%0a(:div9993 class="clear":)%0a(:div9993end:)%0a(:div9993 class="post-content force_contain":)%0a(:blogit intro:){=$:entrybody}(:blogitend:)%0a%25readmore%25(:blogit more {=$FullName}:){=$:entrybody}(:blogitend:)%25%25%0a(:div9993end:)%0a(:div9993 class="clear":)%0a(:div9993end:)%0a(:div9991end:)%0a(:div9990end:)%0a[[#multi-entry-viewend]]%0a@]%0a%0a!!! #single-entry-view%0a[@%0a(:if false:)[[#single-entry-view]](:ifend:)%0a(:div9991 class="postMeta-post":)%25%25(:ifend:)(:if !equal "{*$:entrytags}" "":)%25post-tags%25(:blogit tags:){*$:entrytags}(:blogitend:)%25%25(:ifend:)\%0a(:if !equal "{*$:entryauthor}" "":)%25post-category%25by (:if exists {$bi_AuthorGroup}.{*$:entryauthor}:)[[{$bi_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)\%0a%25date%25{(ftime fmt="%25B %25d, %25Y at %25H:%25M" when=@{*$:entrydate})}%25%25\%0a%25comments%25(:if [ !equal {*$:entrycomments} "{$bi_CommentType_NONE}" && equal {$bi_CommentsEnabled} true ] :)\%0a(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)\%0a(:ifend:)\%0a(:if auth edit:)%25blogit-edit%25[[{*$Group}.{*$Name}?action=blogitedit | $[edit]]]%25%25(:ifend:)%0a>>clear%3c%3c%0a>>%3c%3c%0a(:div9991end:)%0a{*$:entrybody}%0a%0a(:includesection "#comments-pagelist pagename={*$Name} group={*$Group} entrycomments={*$:entrycomments} divid=comments":)%0a[[#single-entry-viewend]]%0a@]%0a%0a!!! #comment-view%0a[@%0a(:if false:)[[#comment-view]](:ifend:)%0a(:template first:)%0a(:if equal {$$onlyunapproved} "false":)%0a!!%25block comment-heading%25$[Comments]%0a(:ifend:)%0a(:template each:)%0a(:div9990 class="commentwrap":)%0a(:if [ equal {$$onlyunapproved} "true" && !equal {(bi_base {=$FullName})} {(bi_base {%3c$FullName})} ]:)%0a!! [[{(bi_base {=$FullName})} | {{(bi_base {=$FullName})}=$Title}]](:ifend:)%0a* %25list commentmetadata%25(:if [ equal "{$bi_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%0a* {(ftime fmt="%25b %25d, %25Y, %25H:%25M" when=@{=$:commentdate})}%0a* %0a* (:if [ auth admin && equal {=$:commentapproved} false ] :)\%0a[[{*$FullName}?action=blogitapprove&pn={=$FullName} | $[approve]]] | (:ifend:)\%0a(:if auth admin:)[[{=$FullName}?action=edit | $[edit]]](:ifend:)%0a(:div9991 class="commentpost":)%0a%25commenttext%25(:blogit multiline:){=$:commenttext}(:blogitend:)%25%25%0a(:div9991end:)%0a>>clear%3c%3c%0a>>%3c%3c%0a(:div9990end:)%0a[[#comment-viewend]]%0a@]%0a%0a!!! #comment-form%0a[@%0a(:if false:)[[#comment-form]](:ifend:)%0a!!! %25block id=reply%25$[Leave a Comment]%0a(:messages:)\\%0a%25label%25$[Name] $[(required)]%25%25\\%0a(:input text $:commentauthor id="comment-author":)\\%0a%25label%25$[E-mail] $[(required, will not be published)]%25%25\\%0a(:input text $:email id="comment-email":)\\%0a%25label%25$[Website (optional)]%25%25\\%0a(:input text $:website id="comment-website":)\\%0a%25label%25Comment%25%25\%0a(:input textarea $:commenttext rows=10 cols=50 id="comment-text":)\\%0a(:if equal {$EnablePostCaptchaRequired} 1:)Enter value: {$Captcha} (:input captcha:) (:ifend:)\\%0a(:input submit class="button" name=post value="$[Post]" id="comment-post":)\%0a[[#comment-formend]]%0a
-time=1239503880
+text=!!! #multi-entry-view%0aParameters: pagenav, perpage, cols%0a%0a[@%0a(:if false:)[[#multi-entry-view]](:ifend:)%0a(:template defaults order=-$:entrydate:)%0a(:template each:)%0a(:if equal 1 {(mod {$$PageCount} {$$cols})}:)(:div9989 class="row-wrap":)(:if:)%0a(:div9990 class="post-wrap (:if equal 0 {(mod {$$PageCount} {$$cols})}:)no-right-margin(:if:)":)%0a(:div9991 class="post-head":)%0a(:div9992 class="title":)%0a!! [[{=$FullName}|{=$Title}]]%0a(:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | {=$:featured_image}]](:if:)%0a(:div9991end:)%0a(:div9991 class="content-wrap":)%0a(:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="%25B %25d, %25Y" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a(:div9993end:)%0a(:div9993 class="clear":)%0a(:div9993end:)%0a(:div9993 class="post-content force_contain":)%0a(:blogit intro:){=$:entrybody}(:blogitend:)%0a%25readmore%25(:blogit more {=$FullName}:){=$:entrybody}(:blogitend:)%25%25%0a(:div9993end:)%0a(:div9993 class="clear":)%0a(:div9993end:)%0a(:div9991end:)%0a(:div9990end:)%0a(:if equal 0 {(mod {$$PageCount} {$$cols})}:)(:div9989end:)(:if:)%0a[[#multi-entry-viewend]]%0a@]%0a%0a!!! #single-entry-view%0a[@%0a(:if false:)[[#single-entry-view]](:ifend:)%0a(:div9991 class="postMeta-post":)%25%25(:ifend:)%25date%25{(ftime fmt="%25B %25d, %25Y at %25H:%25M" when=@{*$:entrydate})}%25%25\%0a(:if !equal "{*$:entrytags}" "":)%25post-category%25(:blogit tags:){*$:entrytags}(:blogitend:)%25%25(:ifend:)\%0a(:if !equal "{*$:entryauthor}" "":)%25post-category%25by (:if exists {$bi_AuthorGroup}.{*$:entryauthor}:)[[{$bi_AuthorGroup}/{*$:entryauthor}]](:else:){*$:entryauthor}(:ifend:)\%0a%25comments%25(:if [ !equal {*$:entrycomments} "{$bi_CommentType_NONE}" && equal {$bi_CommentsEnabled} true ] :)\%0a(:includesection "#comments-count-pagelist entrygroup='{*$Group}' entryname='{*$Name}' commentstatus=true":)\%0a(:ifend:)\%0a(:if auth edit:)%25blogit-edit%25[[{*$Group}.{*$Name}?action=blogitedit | $[edit]]]%25%25(:ifend:)%0a>>clear%3c%3c%0a>>%3c%3c%0a(:div9991end:)%0a{*$:entrybody}%0a%0a(:includesection "#comments-pagelist pagename={*$Name} group={*$Group} entrycomments={*$:entrycomments} divid=comments":)%0a[[#single-entry-viewend]]%0a@]%0a%0a!!! #comment-view%0a[@%0a(:if false:)[[#comment-view]](:ifend:)%0a(:template first:)%0a(:if equal {$$onlyunapproved} "false":)%0a!!%25block comment-heading%25$[Comments]%0a(:ifend:)%0a(:template each:)%0a(:div9990 class="commentwrap":)%0a(:if [ equal {$$onlyunapproved} "true" && !equal {(bi_base {=$FullName})} {(bi_base {%3c$FullName})} ]:)%0a!! [[{(bi_base {=$FullName})} | {{(bi_base {=$FullName})}=$Title}]](:ifend:)%0a* %25list commentmetadata%25(:if [ equal "{$bi_LinkToCommentSite}" "true" && !equal "{=$:website}" "" ] :)[[{=$:website} | {=$:commentauthor}]](:else:){=$:commentauthor}(:ifend:)%0a* {(ftime fmt="%25b %25d, %25Y, %25H:%25M" when=@{=$:commentdate})}%0a* %0a* (:if [ auth admin && equal {=$:commentapproved} false ] :)\%0a[[{*$FullName}?action=blogitapprove&pn={=$FullName} | $[approve]]] | (:ifend:)\%0a(:if auth admin:)[[{=$FullName}?action=edit | $[edit]]](:ifend:)%0a(:div9991 class="commentpost":)%0a%25commenttext%25(:blogit multiline:){=$:commenttext}(:blogitend:)%25%25%0a(:div9991end:)%0a>>clear%3c%3c%0a>>%3c%3c%0a(:div9990end:)%0a[[#comment-viewend]]%0a@]%0a%0a!!! #comment-form%0a[@%0a(:if false:)[[#comment-form]](:ifend:)%0a!!! %25block id=reply%25$[Leave a Comment]%0a(:messages:)\\%0a%25label%25$[Name] $[(required)]%25%25\\%0a(:input text $:commentauthor id="comment-author":)\\%0a%25label%25$[E-mail] $[(required, will not be published)]%25%25\\%0a(:input text $:email id="comment-email":)\\%0a%25label%25$[Website (optional)]%25%25\\%0a(:input text $:website id="comment-website":)\\%0a%25label%25Comment%25%25\%0a(:input textarea $:commenttext rows=10 cols=50 id="comment-text":)\\%0a(:if equal {$EnablePostCaptchaRequired} 1:)Enter value: {$Captcha} (:input captcha:) (:ifend:)\\%0a(:input submit class="button" name=post value="$[Post]" id="comment-post":)\%0a[[#comment-formend]]%0a%0a!!! #blog-summary-pagelist%0aEquilibrium changes: Added cols parameter.%0aParameters: blogid, status, pagenav (true/false -- default is true), count (0 for default all; null for default defined in config), daterange; cols -- number of columns to display%0a[@%0a(:if false:)[[#blog-summary-pagelist]](:ifend:)%0a(:pagelist list="blogit" wrap=none fmt=#multi-entry-view\%0a  order=-$:entrydate\%0a  $:entrytype={$bi_PageType_BLOG}\%0a  {(bi_param group "{$bi_BlogGroups}")}\%0a  {(bi_param $:blogid "{$$blogid}")}\%0a  {(bi_param $:entrystatus "{$$status}")}\%0a  {(bi_param link "{$$link}")}\%0a  {(bi_param perpage "{$$count}")}\%0a  if='{(bi_cond date "{$$daterange}" "@{=$:entrydate}")}'\%0a  (:if !equal {$$count} 0:){(bi_param pagenav "{$$pagenav}")}\%0a  count={(bi_ifnull {$$count} "{$bi_EntryStart}..{$bi_EntryEnd}")}(:ifend:)\%0a  cols={(bi_ifnull {$$cols} "2")}\%0a:)%0a[[#blog-summary-pagelistend]]%0a@]%0a
+time=1245018067
+author:1245018067=
+diff:1245018067:1245017892:=13c13%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | {=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25post-image%25{=$:featured_image}]](:if:)%0a
+host:1245018067=127.0.0.1
+author:1245017892=
+diff:1245017892:1245017570:=13c13%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25post-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if !equal "{=$:featured_image}" "":)%25post-image%25[[{=$FullName} | {=$:featured_image}]](:if:)%0a
+host:1245017892=127.0.0.1
+author:1245017570=
+diff:1245017570:1245017469:=13c13%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)%25post-image%25[[{=$FullName} | {=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25post-image%25{=$:featured_image}]](:if:)%0a
+host:1245017570=127.0.0.1
+author:1245017469=
+diff:1245017469:1245016818:=13c13%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25post-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1245017469=127.0.0.1
+author:1245016818=
+diff:1245016818:1245014386:=35,36c35%0a%3c (:div9991 class="postMeta-post":)%25%25(:ifend:)%25date%25{(ftime fmt="%25B %25d, %25Y at %25H:%25M" when=@{*$:entrydate})}%25%25\%0a%3c (:if !equal "{*$:entrytags}" "":)%25post-category%25(:blogit tags:){*$:entrytags}(:blogitend:)%25%25(:ifend:)\%0a---%0a> (:div9991 class="postMeta-post":)%25%25(:ifend:)(:if !equal "{*$:entrytags}" "":)%25post-tags%25(:blogit tags:){*$:entrytags}(:blogitend:)%25%25(:ifend:)\%0a37a37%0a> %25date%25{(ftime fmt="%25B %25d, %25Y at %25H:%25M" when=@{*$:entrydate})}%25%25\%0a
+host:1245016818=127.0.0.1
+author:1245014386=
+diff:1245014386:1245012658:=16c16%0a%3c (:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="%25B %25d, %25Y" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a---%0a> (:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a
+host:1245014386=127.0.0.1
+author:1245012658=
+diff:1245012658:1245012422:=8c8%0a%3c (:if equal 1 {(mod {$$PageCount} {$$cols})}:)(:div9989 class="row-wrap":)(:if:)%0a---%0a> (:if ! equal 0 {(mod {$$PageCount} {$$cols})}:)(:div9989 class="row-wrap":)(:if:)%0a9a10%0a> COLS: {$$cols}%0a
+host:1245012658=127.0.0.1
+author:1245012422=
+diff:1245012422:1245012349:=10d9%0a%3c COLS: {$$cols}%0a
+host:1245012422=127.0.0.1
+author:1245012349=
+diff:1245012349:1245012213:=8c8,10%0a%3c (:if ! equal 0 {(mod {$$PageCount} {$$cols})}:)(:div9989 class="row-wrap":)(:if:)%0a---%0a> COLS: {$$cols}%0a> (:if ! equal 0 {(mod {$$PageCount} {$$cols})}:)\%0a> (:div9989 class="row-wrap":)(:if:)%0a28c30,31%0a%3c (:if equal 0 {(mod {$$PageCount} {$$cols})}:)(:div9989end:)(:if:)%0a---%0a> (:if equal 0 {(mod {$$PageCount} {$$cols})}:)\%0a> (:div9989end:)(:if:)%0a
+host:1245012349=127.0.0.1
+author:1245012213=
+diff:1245012213:1245012144:=8d7%0a%3c COLS: {$$cols}%0a
+host:1245012213=127.0.0.1
+author:1245012144=
+diff:1245012144:1245010595:=2,3c2,3%0a%3c Parameters: pagenav, perpage, cols%0a%3c %0a---%0a> Parameters: pagenav, perpage%0a> %0a8c8%0a%3c (:if ! equal 0 {(mod {$$PageCount} {$$cols})}:)\%0a---%0a> (:if ! equal 0 {(mod {$$PageCount} 2)}:)\%0a10c10%0a%3c (:div9990 class="post-wrap (:if equal 0 {(mod {$$PageCount} {$$cols})}:)no-right-margin(:if:)":)%0a---%0a> (:div9990 class="post-wrap (:if equal 0 {(mod {$$PageCount} 2)}:)no-right-margin(:if:)":)%0a29c29%0a%3c (:if equal 0 {(mod {$$PageCount} {$$cols})}:)\%0a---%0a> (:if equal 0 {(mod {$$PageCount} 2)}:)\%0a95,115d94%0a%3c %0a%3c !!! #blog-summary-pagelist%0a%3c Equilibrium changes: Added cols parameter.%0a%3c Parameters: blogid, status, pagenav (true/false -- default is true), count (0 for default all; null for default defined in config), daterange; cols -- number of columns to display%0a%3c [@%0a%3c (:if false:)[[#blog-summary-pagelist]](:ifend:)%0a%3c (:pagelist list="blogit" wrap=none fmt=#multi-entry-view\%0a%3c   order=-$:entrydate\%0a%3c   $:entrytype={$bi_PageType_BLOG}\%0a%3c   {(bi_param group "{$bi_BlogGroups}")}\%0a%3c   {(bi_param $:blogid "{$$blogid}")}\%0a%3c   {(bi_param $:entrystatus "{$$status}")}\%0a%3c   {(bi_param link "{$$link}")}\%0a%3c   {(bi_param perpage "{$$count}")}\%0a%3c   if='{(bi_cond date "{$$daterange}" "@{=$:entrydate}")}'\%0a%3c   (:if !equal {$$count} 0:){(bi_param pagenav "{$$pagenav}")}\%0a%3c   count={(bi_ifnull {$$count} "{$bi_EntryStart}..{$bi_EntryEnd}")}(:ifend:)\%0a%3c   cols={(bi_ifnull {$$cols} "2")}\%0a%3c :)%0a%3c [[#blog-summary-pagelistend]]%0a%3c @]%0a
+host:1245012144=127.0.0.1
+author:1245010595=
+diff:1245010595:1244687179:=10c10%0a%3c (:div9990 class="post-wrap (:if equal 0 {(mod {$$PageCount} 2)}:)no-right-margin(:if:)":)%0a---%0a> (:div9990 class="post-wrap":)%0a
+host:1245010595=127.0.0.1
+author:1244687179=
+diff:1244687179:1244686737:=17c17%0a%3c (:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a---%0a> (:div9993 class="postMeta":)HERE:{=$:entrydate}(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a
+host:1244687179=127.0.0.1
+author:1244686737=
+diff:1244686737:1244678624:=17c17%0a%3c (:div9993 class="postMeta":)HERE:{=$:entrydate}(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a---%0a> (:div9993 class="postMeta":)(:if !equal "{=$:entrydate}" "":)%25date%25{(ftime fmt="{$bi_DateDisplayFormat}" when=@{=$:entrydate})}%25%25(:ifend:)%25comments%25(:includesection "#comments-count-pagelist entrygroup='{=$Group}' entryname='{=$Name}' commentstatus=true":)%25%25%0a
+host:1244686737=127.0.0.1
+author:1244678624=
+diff:1244678624:1244678588:=14c14%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$FullName} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1244678624=127.0.0.1
+author:1244678588=
+diff:1244678588:1244678558:=14c14%0a%3c (:div9992end:)(:if !equal "{=$:featured_image}" "":)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if "{=$:featured_image}" :)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1244678588=127.0.0.1
+author:1244678558=
+diff:1244678558:1244678539:=14c14%0a%3c (:div9992end:)(:if "{=$:featured_image}" :)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if equal "{=$:featured_image}" :)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1244678558=127.0.0.1
+author:1244678539=
+diff:1244678539:1244678518:=14c14%0a%3c (:div9992end:)(:if equal "{=$:featured_image}" :)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if equal {=$:featured_image} true:)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1244678539=127.0.0.1
+author:1244678518=
+diff:1244678518:1244678472:=14c14%0a%3c (:div9992end:)(:if equal {=$:featured_image} true:)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)(:if equal {=$:featured_image} false:)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a
+host:1244678518=127.0.0.1
+author:1244678472=
+diff:1244678472:1244678390:=14c14%0a%3c (:div9992end:)(:if equal {=$:featured_image} false:)[[{=$Title} | %25featured-image%25{=$:featured_image}]](:if:)%0a---%0a> (:div9992end:)[[{=$Title} | %25featured-image%25{=$:featured_image}]]%0a
+host:1244678472=127.0.0.1
+author:1244678390=
+diff:1244678390:1244604898:=14c14%0a%3c (:div9992end:)[[{=$Title} | %25featured-image%25{=$:featured_image}]]%0a---%0a> (:div9992end:)%25featured-image%25{=$:featured_image}%0a
+host:1244678390=127.0.0.1
+author:1244604898=
+diff:1244604898:1244604840:=8c8%0a%3c (:if ! equal 0 {(mod {$$PageCount} 2)}:)\%0a---%0a> (:if equal 0 {(mod {$$PageCount} 2)}:)\%0a
+host:1244604898=127.0.0.1
+author:1244604840=
+diff:1244604840:1244599684:=8,9d7%0a%3c (:if equal 0 {(mod {$$PageCount} 2)}:)\%0a%3c (:div9989 class="row-wrap":)(:if:)%0a13a12,13%0a> {(mod {$$PageCount} 2)}%0a> (:if equal 0 {(mod {$$PageCount} 2)}:)HERE(:if:)%0a29,30d28%0a%3c (:if equal 0 {(mod {$$PageCount} 2)}:)\%0a%3c (:div9989end:)(:if:)%0a
+host:1244604840=127.0.0.1
+author:1244599684=
+diff:1244599684:1244599638:=12c12%0a%3c {(mod {$$PageCount} 2)}%0a---%0a> {(bi_lt {$$PageCount} 2)}%0a
+host:1244599684=127.0.0.1
+author:1244599638=
+diff:1244599638:1244599329:=12c12%0a%3c {(bi_lt {$$PageCount} 2)}%0a---%0a> {$$PageCount} {(mod {$$PageCount} 2)}%0a
+host:1244599638=127.0.0.1
+author:1244599329=
+diff:1244599329:1244594500:=12c12%0a%3c {$$PageCount} {(mod {$$PageCount} 2)}%0a---%0a> {(mod {$$PageCount} 2)}%0a
+host:1244599329=127.0.0.1
+author:1244594500=
+diff:1244594500:1244594422:=7a8%0a> (:if equal 0 {(mod {$$PageCount} 2)}:)HERE(:if:)%0a12,13d12%0a%3c {(mod {$$PageCount} 2)}%0a%3c (:if equal 0 {(mod {$$PageCount} 2)}:)HERE(:if:)%0a
+host:1244594500=127.0.0.1
+author:1244594422=
+diff:1244594422:1244585823:=8d7%0a%3c (:if equal 0 {(mod {$$PageCount} 2)}:)HERE(:if:)%0a
+host:1244594422=127.0.0.1
+author:1244585823=
+diff:1244585823:1244584865:=12c12,13%0a%3c (:div9992end:)%25featured-image%25{=$:featured_image}%0a---%0a> (:div9992end:)%0a> %25featured-image%25{=$:featured_image}%0a
+host:1244585823=127.0.0.1
+author:1244584865=
+diff:1244584865:1244584822:=11c11%0a%3c !! [[{=$FullName}|{=$Title}]]%0a---%0a> !! [[{=$FullName}|{=$Title}%25featured-image%25{=$:featured_image}]]%0a13d12%0a%3c %25featured-image%25{=$:featured_image}%0a
+host:1244584865=127.0.0.1
+author:1244584822=
+diff:1244584822:1244583222:=11c11%0a%3c !! [[{=$FullName}|{=$Title}%25featured-image%25{=$:featured_image}]]%0a---%0a> !! [[{=$FullName}|{=$Title}]]%0a12a13%0a> %25featured-image%25{=$:featured_image}%0a
+host:1244584822=127.0.0.1
+author:1244583222=
+diff:1244583222:1244583091:=13c13%0a%3c %25featured-image%25{=$:featured_image}%0a---%0a> {$:featured_image}%0a
+host:1244583222=127.0.0.1
+author:1244583091=
+diff:1244583091:1239503880:=13d12%0a%3c {$:featured_image}%0a
+host:1244583091=127.0.0.1
 author:1239503880=
 diff:1239503880:1239503460:=11a12,13%0a> (:div9992end:)%0a> (:div9992 class="image":)IMAGE%0a
 host:1239503880=127.0.0.1

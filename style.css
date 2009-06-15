@@ -54,7 +54,7 @@ p a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
 h1, strong{font-size:1.4em; font-weight:bold}
 h4, h2, #sidebar .sidehead, #wikitext h2.section-head{font-size:1.8em; color:#222; text-transform:uppercase; padding-bottom:4px; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:28px; font-weight:bold}
-h3{border-bottom:4px solid #C9C9C9; color:#222; font-size:2.2em; font-weight:bold; padding-bottom:4px}
+h3{border-bottom:4px solid #c9c9c9; color:#222; font-size:2.2em; font-weight:bold; padding-bottom:4px}
 h3 a{text-decoration:none; color:#222}
 
 .post h2,
@@ -106,18 +106,18 @@ FEATURED
 -----------------------------------------
 */
 .front-post,
-.featured .post-wrap{width:303px; margin-bottom:3.5em; margin-right:25px; float:left}
+.featured .post-wrap{width:327px; margin-bottom:3.5em; margin-right:25px; float:left}
 
-.front-post-last{width:303px; float:left}
+.front-post-last{width:100%; float:left}
 
 .featured-content,
-.featured .post-content{position:relative; width:303px;margin-bottom:3.5em}
+.featured .post-content{position:relative; width:100%} /*margin-bottom:3.5em*/
 
 .featured-content p,
 .featured .post-content p{margin-top:1em}
 
 .featured-post,
-.featured .post-head{position:relative; width:303px; margin-bottom:1.2em} /*height:231px; */
+.featured .post-head{overflow:hidden; width:100%; margin-bottom:1.2em} /*height:231px; */
 
 .featured-title h2,
 #wikitext .featured .title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1.1em; text-transform:none; padding-bottom:0; border-bottom:0}
@@ -129,10 +129,11 @@ FEATURED
 .featured .title h2 a:hover{color:#fff}
 
 .featured-title,
-.featured .title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; position:absolute; z-index:2}
+.featured .title{background:#000; display:block; z-index:101; width:100%; top:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
 
 .featured-image,
-.featured img{position:relative; height:231px; z-index:1}
+.featured .post-head img{position:relative; width:100%; z-index:1; margin:0 !important} /*height:231px; */
+.featured .content-wrap img {display:none}
 
 .featured-content h2,
 .featured .post-content h2{margin-top:15px}
@@ -147,13 +148,9 @@ SIDEBAR
 -----------------------------------------
 */
 #sidebar{float:right; width:260px; padding-left:20px; overflow:hidden}
-
 #sidebar li a{display:block; width:260px; margin:0; padding:8px 2px; list-style:none; border-bottom:1px solid #c9c9c9; font-size:1.4em; list-style-type:none; text-decoration:none; color:#222}
-
 #sidebar a{color:#222; text-decoration:none}
-
 #sidebar a:hover{color:#fff; background-color:#282828}
-
 #sidebar h2, #sidebar .sidehead{font-size:1.8em; color:#222; text-align:right; text-transform:uppercase; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:0}
 
 /*
@@ -163,29 +160,46 @@ LATEST
 */
 #front-bottom{margin-top:36px}
 
-#latest-wrap{float:left; width:680px}
+#latest-wrap,
+.latest{float:left; width:680px}
 
-.latest-post-wrap{float:left; width:162px; margin-right:8px}
+.latest-post-wrap,
+.latest .post-wrap{float:left; width:162px; margin-right:8px}
 
-.latest-post{position:relative; width:162px; height:118px}
+.latest-post,
+.latest .post-head{overflow:hidden; width:162px}
 
-.latest-image{position:absolute; z-index:1}
+.latest-image,
+.latest .post-head img{position:relative; width:100%; z-index:1; margin:0 !important}
+.latest .content-wrap img {display:none}
 
-.latest-title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1em; text-transform:none; padding-bottom:0; border-bottom:0}
+.latest-title h2,
+#wikitext .latest .title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1em; text-transform:none; padding-bottom:0; border-bottom:0}
 
-.latest-title h2 a{display:block; color:#0B96D0; text-decoration:none}
+.latest-title h2 a,
+.latest .title h2 a{display:block; color:#0B96D0; text-decoration:none}
 
-.latest-title h2 a:hover{color:#fff}
+.latest-title h2 a:hover,
+.latest .title h2 a:hover{color:#fff}
 
-.latest-title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; position:absolute; z-index:2}
+.latest-title,
+.latest .title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
 
-.latest-content{position:relative; width:162px; height:200px; margin-bottom:20px}
+.latest-content,
+.latest .post-content{position:relative; width:162px; margin-bottom:20px} /*height:200px; */
 
-.latest-content h2{margin-top:15px}
-.latest-content h2 a{color:#0b96d0; text-decoration:none}
-.latest-content h2 a:hover{color:#000}
+.latest-content h2,
+.latest .post-content h2{margin-top:15px}
+.latest-content h2 a,
+.latest .post-content h2{color:#0b96d0; text-decoration:none}
+.latest-content h2 a:hover,
+.latest .post-content h2:hover{color:#000}
 
-.latest-content p{color:#222; font-size:1.2em; line-height:1.5; margin-top:8px; margin-bottom:1.5em; text-align:left}
+.latest-content p,
+.latest .post-content p{color:#222; font-size:1.2em; line-height:1.5; margin-top:8px; margin-bottom:1.5em; text-align:left}
+
+.row-wrap{float: left}
+.no-right-margin{margin-right:0 !important}
 
 /*
 -----------------------------------------
@@ -210,7 +224,8 @@ POSTMETA
 .postMeta{font-size:1.2em; margin-bottom:18px; margin-top:8px; padding-bottom:24px; border-bottom:1px solid #c9c9c9}
 
 .postMeta-featured,
-.featured .postMeta{margin-top:8px; font-size:1.2em; width:303px; margin-bottom:0; padding-bottom:0; border-bottom:none}
+.featured .postMeta,
+.latest .postMeta{margin-top:8px; font-size:1.2em; width:100%; margin-bottom:0; padding-bottom:0; border-bottom:none}
 
 .postMeta-front{margin-top:8px; font-size:1.2em}
 
@@ -219,23 +234,22 @@ POSTMETA
 .postMeta span.date,
 .postMeta-post span.date,
 .postMeta-featured span.date,
-.featured .postMeta span.date,
-.postMeta-front span.date{clear:both;color:#8a8a8a; float:left}
+.postMeta-front span.date{color:#8a8a8a; float:left}
+
+.postMeta-post span.date,
+.postMeta-post span.comments{clear:both;}
 
 .postMeta span.comments a,
 .postMeta span.date a,
 .postMeta-post span.comments a,
 .postMeta-post span.date a,
 .postMeta-featured span.comments a,
-.featured .postMeta span.comments a,
 .postMeta-featured span.date a,
-.featured .postMeta span.date a,
 .postMeta-front span.comments a,
 .postMeta-front span.date a{float:left; color:#8a8a8a; text-decoration:none}
 
 .postMeta span.comments,
 .postMeta-featured span.comments,
-.featured .postMeta span.comments,
 .postMeta-post span.comments,
 .postMeta-front span.comments{color:#8a8a8a;float:right; background:#FFF url(images/comment.gif) no-repeat left center; padding-left:15px; margin-left:2px}
 
@@ -245,8 +259,7 @@ POSTS
 -----------------------------------------
 */
 .post-category{color:#8a8a8a; float:right; margin-bottom:8px}
-
-.post-tags{color:#8a8a8a; float:left}
+.post-tags{color:#8a8a8a; float:left; margin-bottom:8px}
 
 .post-category p,
 .post-tags p{color:#8A8A8A; font-size:1em; line-height:1.5em; margin-bottom:0em; margin-top:0em; text-align:none}
@@ -259,6 +272,7 @@ POSTS
 COMMENTS
 -----------------------------------------
 */
+#comments {clear:both; overflow:hidden}
 #comments .comment-heading{margin-top: 40px; margin-bottom:26px; text-transform:none; border:none}
 #comments .commentwrap{border-top:1px solid #C9C9C9; padding-bottom:25px; padding-top:15px}
 
@@ -304,7 +318,6 @@ SEARCH
 #searchform{float:left; margin-top:1em; height:2.3em}
 #searchsubmit{border:1px solid #E5E5E5; font-size:1.1em; font-weight:bold; height:2.1em; padding:2px 8px; text-transform:uppercase; float:right; background-color:#F0F0F0}
 #s{float:left; width:204px; margin-right:6px; padding-top:4px; padding-bottom:4px; padding-left:2px; padding-right:2px; border:1px solid #E5E5E5; font-size:1.1em}
-
 
 /*
 -----------------------------------------
