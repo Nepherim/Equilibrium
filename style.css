@@ -49,7 +49,7 @@ p, address, caption, cite, pre, code, dfn, em, strong, th, var, dt, dd
 {color:#222; font-size:1.2em; line-height:1.5; margin-top:1.5em; margin-bottom:1.5em; text-align:justify}
 pre {font-size: 1.5em}
 p a, p a:visited,
-.postMeta-post a, .postMeta-post a:visited{border-bottom:1px solid #c9c9c9; color:#0B96D0; text-decoration:none}
+.postMeta-post a, .postMeta-post a:visited{border-bottom:1px solid #c9c9c9; text-decoration:none}
 p a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
 h1, strong{font-size:1.4em; font-weight:bold}
@@ -87,9 +87,6 @@ h1.logo a,
 #top ul a:link,
 #top ul a:visited{padding:5px; display:block; color:#353434; margin-right:10px; float:left; text-decoration:none; font-size:1.4em; font-weight:bold; text-transform:uppercase}
 
-#nav a:hover,
-#top ul a:hover{color:#fff; background:#000}
-
 ul#nav li.current_page_item a:link,
 ul#nav li.current_page_item a:visited,
 ul#nav li.current_page_item a:hover,
@@ -98,7 +95,7 @@ ul#nav li.current_page_item a:active,
 #top ul li.current_page_item a:visited,
 #top ul li.current_page_item a:hover,
 #top ul li.current_page_item a:active
-{color:#fff; text-decoration:none; background:#000}
+{text-decoration:none}
 
 /*
 -----------------------------------------
@@ -123,13 +120,10 @@ FEATURED
 #wikitext .featured .title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1.1em; text-transform:none; padding-bottom:0; border-bottom:0}
 
 .featured-title h2 a,
-.featured .title h2 a{font-size:1.1em; display:block; color:#0B96D0; text-decoration:none; border-bottom:0}
-
-.featured-title h2 a:hover,
-.featured .title h2 a:hover{color:#fff}
+.featured .title h2 a{font-size:1.1em; display:block; text-decoration:none; border-bottom:0}
 
 .featured-title,
-.featured .title{background:#000; display:block; z-index:101; width:100%; top:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
+.featured .title{display:block; z-index:101; width:100%; top:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
 
 .featured-image,
 .featured .post-head img{position:relative; width:100%; z-index:1; margin:0 !important} /*height:231px; */
@@ -138,7 +132,7 @@ FEATURED
 .featured-content h2,
 .featured .post-content h2{margin-top:15px}
 .featured-content h2 a,
-.featured .post-content h2 a{color:#0b96d0; text-decoration:none}
+.featured .post-content h2 a{text-decoration:none}
 .featured-content h2 a:hover,
 .featured .post-content h2 a{color:#000}
 
@@ -150,7 +144,6 @@ SIDEBAR
 #sidebar{float:right; width:260px; padding-left:20px; overflow:hidden}
 #sidebar li a{display:block; width:260px; margin:0; padding:8px 2px; list-style:none; border-bottom:1px solid #c9c9c9; font-size:1.4em; list-style-type:none; text-decoration:none; color:#222}
 #sidebar a{color:#222; text-decoration:none}
-#sidebar a:hover{color:#fff; background-color:#282828}
 #sidebar h2, #sidebar .sidehead{font-size:1.8em; color:#222; text-align:right; text-transform:uppercase; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:0}
 
 /*
@@ -177,13 +170,13 @@ LATEST
 #wikitext .latest .title h2{margin:8px 10px 7px; line-height:1.4em; font-size:1em; text-transform:none; padding-bottom:0; border-bottom:0}
 
 .latest-title h2 a,
-.latest .title h2 a{display:block; color:#0B96D0; text-decoration:none}
+.latest .title h2 a{display:block; text-decoration:none}
 
 .latest-title h2 a:hover,
 .latest .title h2 a:hover{color:#fff}
 
 .latest-title,
-.latest .title{background:#000; display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
+.latest .title{display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
 
 .latest-content,
 .latest .post-content{position:relative; width:162px; margin-bottom:20px} /*height:200px; */
@@ -191,7 +184,7 @@ LATEST
 .latest-content h2,
 .latest .post-content h2{margin-top:15px}
 .latest-content h2 a,
-.latest .post-content h2{color:#0b96d0; text-decoration:none}
+.latest .post-content h2{text-decoration:none}
 .latest-content h2 a:hover,
 .latest .post-content h2:hover{color:#000}
 
@@ -214,7 +207,7 @@ FOOTER
 
 #footer div a{border-bottom:1px solid #c9c9c9; color:#4d4d4d; text-decoration:none}
 
-#footer div a:hover{border-bottom:1px solid #c9c9c9; color:#0b96d0; text-decoration:none}
+#footer div a:hover{border-bottom:1px solid #c9c9c9; text-decoration:none}
 
 /*
 -----------------------------------------
@@ -281,7 +274,7 @@ COMMENTS
 
 #comments .commentmetadata{float:left; width:20%; color:#2F2B23; line-height:1.5em; padding-right:20px; color:#999; font-size:1.1em}
 #comments .commentmetadata li{list-style-type:none; padding:.3em; margin:0 .5em 0 0; font-size:1em;}
-#comments .commentmetadata li a{border-bottom:1px solid #c9c9c9; color:#0B96D0; text-decoration:none}
+#comments .commentmetadata li a{border-bottom:1px solid #c9c9c9; text-decoration:none}
 
 #comments .warning{padding:10px; background:#282828; border:1px solid #323232; ; margin-bottom:10px}
 
