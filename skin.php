@@ -7,10 +7,10 @@
  * Please retain the links in the footer.
  * http://creativecommons.org/licenses/by-sa/3.0/us/
  */
-global $FmtPV, $SkinStyle, $PageLogoUrl, $PageLogoWidth, $RecipeInfo, $HTMLStylesFmt;
+global $FmtPV, $SkinStyle, $PageLogoUrl, $PageLogoUrlWidth, $RecipeInfo, $HTMLStylesFmt;
 $FmtPV['$SkinName'] = '"equilibrium"';
-$FmtPV['$SkinVersion'] = '"0.1.0"';
-$FmtPV['$SkinDate'] = '"20090615"';
+$FmtPV['$SkinVersion'] = '"0.1.1"';
+$FmtPV['$SkinDate'] = '"20090620"';
 
 # Default color scheme
 global $SkinColor, $ValidSkinColors;
@@ -32,9 +32,10 @@ $ValidSkinColors = array_merge($ValidSkinColors, $UserSkinColors);
 if ( isset($_GET['color']) && isset($ValidSkinColors[$_GET['color']]) ) {
 	$SkinColor = $_GET['color'];
 } elseif ( !isset($ValidSkinColors[$SkinColor]) ) {
-	$SkinColor = 'red';
+	$SkinColor = 'black';
 }
 
+$UserStyle = $HTMLStylesFmt['equilibrium'];
 $HTMLStylesFmt['equilibrium'] =
 	'.featured .title,.latest .title,.featured .title h2 a,.latest .title h2 a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['entry-title-text']. '}'.
@@ -52,9 +53,11 @@ $HTMLStylesFmt['equilibrium'] =
 		';background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'}'.
 	'h1.logo a, #top h1 a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['title-text']. '}';
-if (!empty($PageLogoUrl) && !empty($PageLogoUrlWidth)) {
-	$HTMLStylesFmt['equilibrium'] .= '#header h1 a {padding-left: ' .$PageLogoWidth .'; background: url(' .$PageLogoUrl .') left bottom no-repeat;}';
+if (isset($PageLogoUrl) && isset($PageLogoUrlWidth)) {
+	$HTMLStylesFmt['equilibrium'] .= '#top h1 a {padding-left: ' .$PageLogoUrlWidth .'; background: url(' .$PageLogoUrl .') left bottom no-repeat;}';
 }
+$HTMLStylesFmt['equilibrium'] .= $UserStyle;
+
 global $WikiStyleApply;
 $WikiStyleApply['a'] = 'a';
 
