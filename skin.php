@@ -10,7 +10,7 @@
 global $FmtPV, $SkinStyle, $PageLogoUrl, $PageLogoUrlWidth, $RecipeInfo, $HTMLStylesFmt;
 $FmtPV['$SkinName'] = '"equilibrium"';
 $FmtPV['$SkinVersion'] = '"0.1.1"';
-$FmtPV['$SkinDate'] = '"20090620"';
+$FmtPV['$SkinDate'] = '"20090619"';
 
 # Default color scheme
 global $SkinColor, $ValidSkinColors;
