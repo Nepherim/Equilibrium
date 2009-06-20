@@ -54,11 +54,13 @@ p a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
 h1, strong{font-size:1.4em; font-weight:bold}
 h4, h2, #sidebar .sidehead, #wikitext h2.section-head{font-size:1.8em; color:#222; text-transform:uppercase; padding-bottom:4px; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:28px; font-weight:bold}
-h3{border-bottom:4px solid #c9c9c9; color:#222; font-size:2.2em; font-weight:bold; padding-bottom:4px}
+h3.page-head{border-bottom:4px solid #c9c9c9; color:#222; font-size:2.2em; font-weight:bold; padding-bottom:4px}
 h3 a{text-decoration:none; color:#222}
 
 .post h2,
-#wikitext h2{text-transform:none; padding-bottom:0; border-bottom:0; margin-top:0; margin-bottom:0}
+#wikitext h2, #wikitext h3, #wikitext h4{text-transform:none; padding-bottom:0; border-bottom:0; margin-bottom:0; margin-top:1.5em}
+#wikitext h3 {font-size: 1.5em}
+#wikitext h4 {font-size: 1.2em}
 .post ul li,
 .post ol li,
 #wikitext ul li,
@@ -330,12 +332,13 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 #captcha { display: inline; font-weight: bold;}
 #captcha input { width: 50px;	}
 #wikitext dd, #wikitext .indent { margin-left:40px; }
-#wikitext .outdent { margin-left:40px; text-indent:-40px; }
+#wikitext .outdent {margin: 1em 40px .5em 40px; text-indent:-40px; }
 #wikitext .quickref {background-color: #fff; font-size: 100% !important; margin-top: 4em}
 #wikitext .quickref p, #wikitext .quickref .outdent, #wikitext .quickref div, #wikitext .quickref strong {font-size:1em; margin:0; text-align:left; text-indent:0}
 #wikitext .quickref br {display:none}
 #wikitext code.escaped,
-#wikitext pre {background-color: #f6f6f6; overflow: auto; height: auto; width: 90%; margin: 1.5em auto; padding: .3em; color: #666}
+#wikitext pre {font-size:140%; background-color: #f6f6f6; overflow: auto; height: auto; width: 90%; margin: 1.5em auto; padding: .15em; color: #666}
+#wikitext hr {border:1px solid #C9C9C9; margin:3em 0}
 #wikiedit img {margin:0}
 #wikiedit #text {width:99%}
 .postMeta-post .blogit-edit {float:right; margin-right:5px; padding-right:5px; border-bottom: none !important }
