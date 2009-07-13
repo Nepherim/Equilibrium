@@ -7,10 +7,12 @@
  * Please retain the links in the footer.
  * http://creativecommons.org/licenses/by-sa/3.0/us/
  */
-global $FmtPV, $SkinStyle, $PageLogoUrl, $PageLogoUrlWidth, $RecipeInfo, $HTMLStylesFmt;
+global $FmtPV,$HTMLStylesFmt,$MarkupExpr;
 $FmtPV['$SkinName'] = '"equilibrium"';
-$FmtPV['$SkinVersion'] = '"0.1.1"';
-$FmtPV['$SkinDate'] = '"20090619"';
+$FmtPV['$SkinVersion'] = '"1.0.0"';
+$FmtPV['$SkinDate'] = '"20090712"';
+
+$MarkupExpr['mod'] = '($args[0] % $args[1])';
 
 # Default color scheme
 global $SkinColor, $ValidSkinColors;
@@ -45,17 +47,27 @@ $HTMLStylesFmt['equilibrium'] =
 	'.latest .post-content h2,#footer div a:hover,'.
 	'#comments .commentmetadata li a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['text-highlight']. '}'.
-	'#sidebar a:hover,#nav a:hover,#top ul a:hover,ul#nav li.current_page_item a:link,'.
+	'#sidebar a:hover,#nav a:hover,#siteheader ul a:hover,ul#nav li.current_page_item a:link,'.
 	'ul#nav li.current_page_item a:visited,ul#nav li.current_page_item a:hover,ul#nav li.current_page_item a:active,'.
-	'#top ul li.current_page_item a:link,#top ul li.current_page_item a:visited,#top ul li.current_page_item a:hover,'.
-	'#top ul li.current_page_item a:active'.
+	'#siteheader ul li.current_page_item a:link,#siteheader ul li.current_page_item a:visited,#siteheader ul li.current_page_item a:hover,'.
+	'#siteheader ul li.current_page_item a:active'.
 		'{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].
 		';background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'}'.
-	'h1.logo a, #top h1 a'.
-		'{color:'. $ValidSkinColors[$SkinColor]['title-text']. '}';
-if (isset($PageLogoUrl) && isset($PageLogoUrlWidth)) {
-	$HTMLStylesFmt['equilibrium'] .= '#top h1 a {padding-left: ' .$PageLogoUrlWidth .'; background: url(' .$PageLogoUrl .') left bottom no-repeat;}';
+	'#siteheader .sitetitle.logo a, #siteheader .sitetitle a'.
+		'{color:'. $ValidSkinColors[$SkinColor]['title-text']. '} ';
+
+global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth;
+if (!empty($PageLogoUrl)) {
+	if (!isset($PageLogoUrlWidth) || !isset($PageLogoUrlHeight)) {
+		$size = getimagesize($PageLogoUrl);
+		SDV($PageLogoUrlWidth, ($size ?$size[0]+15 :0) .'px');
+		SDV($PageLogoUrlHeight, ($size ?$size[1] :0) .'px');
+	}
+	$HTMLStylesFmt['equilibrium'] .= '#siteheader .sitetitle a{height:' .$PageLogoUrlHeight .'; background: url(' .$PageLogoUrl .') left top no-repeat} '.
+		'#siteheader .sitetitle a, #siteheader .sitetag{padding-left: ' .$PageLogoUrlWidth .'} '.
+		'#siteheader .sitetag{margin-top: ' .(45-substr($PageLogoUrlHeight,0,-2)) .'px}';
 }
+
 $HTMLStylesFmt['equilibrium'] .= $UserStyle;
 
 global $WikiStyleApply;
@@ -73,6 +85,7 @@ Markup('notabs', 'directives',  '/\\(:notabs:\\)/ei', "SetTmplDisplay('PageTabsF
 # - Standard Skin Setup
 # ----------------------------------------
 $FmtPV['$WikiTitle'] = '$GLOBALS["WikiTitle"]';
+$FmtPV['$WikiTag'] = '$GLOBALS["WikiTag"]';
 Markup('fieldset', 'inline', '/\\(:fieldset:\\)/i', "<fieldset>");
 Markup('fieldsetend', 'inline', '/\\(:fieldsetend:\\)/i', "</fieldset>");
 

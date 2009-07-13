@@ -1,7 +1,7 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC
+ "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title>$WikiTitle {$Group}/{$Titlespaced}</title>
 	<meta name="generator" content="PmWiki" />
@@ -14,11 +14,13 @@
 	<div id="page-wrap" class="force_contain">
 		<div id="top">
 			<!--PageHeaderFmt-->
-			<!--wiki:{$SiteGroup}.{$SkinName}-SiteHeader {$Group}.SiteHeader {$SiteGroup}.SiteHeader -->
+			<div id="siteheader">
+				<!--wiki:{$Group}.SiteHeader {$SiteGroup}.SiteHeader-->
+			</div>
 			<!--/PageHeaderFmt-->
 
 			<!--PageTabsFmt-->
-			<!--wiki:{$SiteGroup}.{$SkinName}-SiteNav {$Group}.SiteNav {$SiteGroup}.SiteNav -->
+			<!--wiki:{$Group}.SiteNav {$SiteGroup}.SiteNav -->
 			<!--/PageTabsFmt-->
 			<!--PageActionFmt-->
 			<div class="pageactions">
@@ -30,7 +32,7 @@
 
 		<div class="content">
 			<!--PageTitleFmt-->
-			<a href='{$ScriptUrl}.{$Group}' class="pagegroup">{$Group}</a>
+			<a href='{$ScriptUrl}/{$Group}' class="pagegroup">{$Group}</a>
 			<h3 class='page-head'><a href='{$PageUrl}'>{$Titlespaced}</a></h3>
 			<!--/PageTitleFmt-->
 			<!--PageText-->
@@ -39,7 +41,7 @@
 		<!--PageRightFmt-->
 		<div id="sidebar">
 			<h2>Search</h2>
-			<form id="searchform" action='$ScriptUrl'><fieldset>
+			<form id="searchform" action='$ScriptUrl' method="post"><fieldset>
 				<input type='hidden' name='n' value='{$FullName}' />
 				<input type='hidden' name='action' value='search' />
 				<input class='searchBox' type='text' id='s' name='q' value="" />
@@ -47,7 +49,7 @@
 			</fieldset></form>
 			<div class="clear"></div>
 
-			<!--wiki:{$SiteGroup}.{$SkinName}-SideBar {$Group}.SideBar {$SiteGroup}.SideBar-->
+			<!--wiki:{$Group}.SideBar {$SiteGroup}.SideBar-->
 
 		</div>
 		<!--/PageRightFmt-->
@@ -55,9 +57,10 @@
 
 	<div id="footer">
 		<!--PageFooterFmt-->
-			<!--wiki:{$SiteGroup}.{$SkinName}-SiteFooter {$Group}.SiteFooter {$SiteGroup}.SiteFooter -->
+		<div class="footer"><!--wiki:{$Group}.SiteFooter {$SiteGroup}.SiteFooter--></div>
 		<!--/PageFooterFmt-->
-		<div class="copyright floatLeft">
+
+		<div class="credits">
 			<a href="http://pmwiki.com/Cookbook/Equilibrium">Equilibrium</a> theme originally by <a href="http://madebyon.com/">Made By On</a>, adapted by <a href="http://solidgone.org/Skins">David Gilbert</a>, powered by <a href="http://pmwiki.com/">PmWiki</a>
 		</div>
 	</div>

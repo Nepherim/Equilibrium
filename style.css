@@ -75,8 +75,15 @@ TOP
 */
 #top{margin-top:55px; padding-bottom:70px}
 
+#siteheader {float: left; position: relative;}
+
 h1.logo a,
-#top h1 a{float:left; font-size:2.6em; font-weight:bold; color:#000; text-transform:uppercase; text-decoration:none}
+#siteheader .sitetitle {float:left}
+#siteheader .sitetitle a{display: block}
+#siteheader .sitetag {float: left; clear: left}
+
+#siteheader .sitetitle a{font-size:2.6em; font-weight:bold; color:#000; text-transform:uppercase; text-decoration:none}
+#siteheader .sitetag {color: #8A8A8A}
 
 #nav, #top ul{float:right; margin-top:1.2em}
 
@@ -205,11 +212,11 @@ FOOTER
 
 #footer{clear: both; padding-top:10px; border-top:1px solid #C9C9C9; width:960px; margin:60px auto 0; height:80px; color:#4d4d4d}
 
-#footer div{font-size:1.2em; color:#4d4d4d; line-height:1.5em; margin-bottom:0; margin-top:0.6em}
+#footer div, #footer p{text-align: center; font-size:1em; color:#4d4d4d; line-height:1.5em; margin-bottom:0; margin-top:0}
 
-#footer div a{border-bottom:1px solid #c9c9c9; color:#4d4d4d; text-decoration:none}
+#footer div a, #footer p a{border-bottom:1px solid #c9c9c9; color:#4d4d4d; text-decoration:none}
 
-#footer div a:hover{border-bottom:1px solid #c9c9c9; text-decoration:none}
+#footer div a:hover, #footer a:hover{border-bottom:1px solid #c9c9c9; text-decoration:none}
 
 /*
 -----------------------------------------
@@ -319,10 +326,10 @@ SEARCH
 PMWIKI
 -----------------------------------------
 */
-#footer .copyright {clear: left; margin-top: 2.5em; font-size:1em; color: #8A8A8A;}
-#footer .copyright a {color: #8A8A8A}
+#footer .credits {clear: left; margin-top: 2.5em; font-size:1em; color: #8A8A8A;}
+#footer .credits a {color: #8A8A8A}
 #top .createlink, #top ul .createlink { display: none !important}
-.pageactions {position:absolute;right:10px;top:-70px; clear:right}
+.pageactions {position:absolute;right:5px;top:-70px}
 .pageactions li a {font-size:9px !important; color: #C9C9C9 !important; text-transform: lowercase !important}
 .pagegroup {display:block; margin-top: 9.3px;color: #8A8A8A; font-size:1.1em; text-transform: lowercase;text-decoration: none}
  a.createlinktext { text-decoration:none; border-bottom:none; }
@@ -334,13 +341,14 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 #wikitext dd, #wikitext .indent { margin-left:40px; }
 #wikitext .outdent {margin: 1em 40px .5em 40px; text-indent:-40px; }
 #wikitext .quickref {background-color: #fff; font-size: 100% !important; margin-top: 4em}
-#wikitext .quickref p, #wikitext .quickref .outdent, #wikitext .quickref div, #wikitext .quickref strong {font-size:1em; margin:0; text-align:left; text-indent:0}
+#wikitext .quickref p, #wikitext .quickref .outdent, #wikitext .quickref div, #wikitext .quickref strong {font-size:1em; margin:0; text-align:left; text-indent:0; line-height: 2em}
 #wikitext .quickref br {display:none}
 #wikitext code.escaped,
 #wikitext pre {font-size:140%; background-color: #f6f6f6; overflow: auto; height: auto; width: 90%; margin: 1.5em auto; padding: .15em; color: #666}
 #wikitext hr {border:1px solid #C9C9C9; margin:3em 0}
 #wikiedit img {margin:0}
 #wikiedit #text {width:99%}
+.difftime, .difftype {font-size: 1em !important}
 .postMeta-post .blogit-edit {float:right; margin-right:5px; padding-right:5px; border-bottom: none !important }
 .force_contain:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
 .force_contain { display: inline-block; _height: 1%; }
