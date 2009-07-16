@@ -347,6 +347,7 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 #wikitext pre {font-size:140%; background-color: #f6f6f6; overflow: auto; height: auto; width: 90%; margin: 1.5em auto; padding: .15em; color: #666}
 #wikitext hr {border:1px solid #C9C9C9; margin:3em 0}
 #wikiedit img {margin:0}
+#wikiedit a {border:0}
 #wikiedit #text {width:99%}
 .difftime, .difftype {font-size: 1em !important}
 .postMeta-post .blogit-edit {float:right; margin-right:5px; padding-right:5px; border-bottom: none !important }
