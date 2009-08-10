@@ -9,7 +9,7 @@
  */
 global $FmtPV,$HTMLStylesFmt,$MarkupExpr;
 $FmtPV['$SkinName'] = '"equilibrium"';
-$FmtPV['$SkinVersion'] = '"1.0.0"';
+$FmtPV['$SkinVersion'] = '"1.0.1"';
 $FmtPV['$SkinDate'] = '"20090712"';
 
 $MarkupExpr['mod'] = '($args[0] % $args[1])';
@@ -59,13 +59,14 @@ $HTMLStylesFmt['equilibrium'] =
 global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth;
 if (!empty($PageLogoUrl)) {
 	if (!isset($PageLogoUrlWidth) || !isset($PageLogoUrlHeight)) {
-		$size = getimagesize($PageLogoUrl);
+		$size = @getimagesize(urlencode($PageLogoUrl));
 		SDV($PageLogoUrlWidth, ($size ?$size[0]+15 :0) .'px');
 		SDV($PageLogoUrlHeight, ($size ?$size[1] :0) .'px');
 	}
-	$HTMLStylesFmt['equilibrium'] .= '#siteheader .sitetitle a{height:' .$PageLogoUrlHeight .'; background: url(' .$PageLogoUrl .') left top no-repeat} '.
-		'#siteheader .sitetitle a, #siteheader .sitetag{padding-left: ' .$PageLogoUrlWidth .'} '.
-		'#siteheader .sitetag{margin-top: ' .(45-substr($PageLogoUrlHeight,0,-2)) .'px}';
+	$HTMLStylesFmt['equilibrium'] .=
+		'#siteheader .sitetitle a{'. (isset($PageLogoUrlHeight) ?'height:' .$PageLogoUrlHeight .';' :''). ' background: url(' .$PageLogoUrl .') left top no-repeat} '.
+		(isset($PageLogoUrlWidth) ?'#siteheader .sitetitle a, #siteheader .sitetag{padding-left: ' .$PageLogoUrlWidth .'} ' :'').
+		(isset($PageLogoUrlHeight) ?'#siteheader .sitetag{margin-top: ' .(45-substr($PageLogoUrlHeight,0,-2)) .'px}' :'');
 }
 
 $HTMLStylesFmt['equilibrium'] .= $UserStyle;
