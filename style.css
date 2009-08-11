@@ -276,14 +276,14 @@ COMMENTS
 */
 #comments {clear:both; overflow:hidden}
 #comments .comment-heading{margin-top: 40px; margin-bottom:26px; text-transform:none; border:none}
-#comments .commentwrap{border-top:1px solid #C9C9C9; padding-bottom:25px; padding-top:15px}
+#comments .commentwrap, #wikitext .commentwrap{border-top:1px solid #C9C9C9; padding-bottom:25px; padding-top:15px}
 
-#comments .commentpost{float:right; width:510px; padding:0.3em}
-#comments .commentpost p{margin-top:0}
+#comments .commentpost, #wikitext .commentpost{float:right; width:510px; padding:0.3em}
+#comments .commentpost p, #wikitext .commentpost p{margin-top:0}
 
-#comments .commentmetadata{float:left; width:20%; color:#2F2B23; line-height:1.5em; padding-right:20px; color:#999; font-size:1.1em}
-#comments .commentmetadata li{list-style-type:none; padding:.3em; margin:0 .5em 0 0; font-size:1em;}
-#comments .commentmetadata li a{border-bottom:1px solid #c9c9c9; text-decoration:none}
+#comments .commentmetadata, #wikitext .commentmetadata{float:left; width:20%; color:#2F2B23; line-height:1.5em; padding-right:20px; color:#999; font-size:1.1em}
+#comments .commentmetadata li, #wikitext .commentmetadata li{list-style-type:none; padding:.3em; margin:0 .5em 0 0; font-size:1em;}
+#comments .commentmetadata li a, #wikitext .commentmetadata li a{border-bottom:1px solid #c9c9c9; text-decoration:none}
 
 #comments .warning{padding:10px; background:#282828; border:1px solid #323232; ; margin-bottom:10px}
 
