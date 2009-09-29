@@ -40,8 +40,8 @@
 
 		<!--PageRightFmt-->
 		<div id="sidebar">
-			<h2>Search</h2>
-			<form id="searchform" action='$ScriptUrl' method="post"><fieldset>
+			<h2>$[Search]</h2>
+			<form id="searchform" action='$ScriptUrl' method="get"><fieldset>
 				<input type='hidden' name='n' value='{$FullName}' />
 				<input type='hidden' name='action' value='search' />
 				<input class='searchBox' type='text' id='s' name='q' value="" />
@@ -61,7 +61,7 @@
 		<!--/PageFooterFmt-->
 
 		<div class="credits">
-			<a href="http://pmwiki.com/Cookbook/Equilibrium">Equilibrium</a> theme originally by <a href="http://madebyon.com/">Made By On</a>, adapted by <a href="http://solidgone.org/Skins">David Gilbert</a>, powered by <a href="http://pmwiki.com/">PmWiki</a>
+			<a href="http://pmwiki.com/Cookbook/Equilibrium">Equilibrium</a> $[theme originally by] <a href="http://madebyon.com/">Made By On</a>, $[adapted by] <a href="http://solidgone.org/Skins">David Gilbert</a>, $[powered by] <a href="http://pmwiki.com/">PmWiki</a>
 		</div>
 	</div>
 

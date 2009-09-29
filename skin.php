@@ -9,8 +9,8 @@
  */
 global $FmtPV,$HTMLStylesFmt,$MarkupExpr;
 $FmtPV['$SkinName'] = '"Equilibrium"';
-$FmtPV['$SkinVersion'] = '"1.0.1"';
-$FmtPV['$SkinDate'] = '"20090712"';
+$FmtPV['$SkinVersion'] = '"1.1.0"';
+$FmtPV['$SkinDate'] = '"20090929"';
 
 $MarkupExpr['mod'] = '($args[0] % $args[1])';
 
@@ -41,6 +41,7 @@ $HTMLStylesFmt['equilibrium'] =
 	'.featured-title h2 a:hover,.featured .title h2 a:hover{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].'}'.
 	'.featured .title,.latest .title{background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'}'.
 	'p a,p a:visited,.postMeta-post a,.postMeta-post a:visited,.featured .post-content h2 a,'.
+	'.page-navigation a,.page-navigation a:visited,'.
 	'.latest .post-content h2,#footer div a:hover,'.
 	'#comments .commentmetadata li a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['text-highlight']. '}'.
