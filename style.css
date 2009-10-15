@@ -48,10 +48,10 @@ p, address, caption, cite, pre, code, dfn, em, strong, th, var, dt, dd
 {color:#222; font-size:1.2em; line-height:1.5; margin-top:1.5em; margin-bottom:1.5em; text-align:justify}
 pre {font-size: 1.5em}
 p a, p a:visited,
-.page-navigation a, .page-navigation a:visited,
+.blogit-page-navigation a, .blogit-page-navigation a:visited,
 .postMeta-post a, .postMeta-post a:visited{border-bottom:1px solid #c9c9c9; text-decoration:none}
 p a:hover,
-.page-navigation a:hover,
+.blogit-page-navigation a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
 h1, strong{font-size:1.4em; font-weight:bold}
 h4, h2, #sidebar .sidehead, #wikitext h2.section-head{font-size:1.8em; color:#222; text-transform:uppercase; padding-bottom:4px; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:28px; font-weight:bold}
@@ -244,13 +244,14 @@ POSTMETA
 .postMeta-post span.comments{clear:both;}
 
 .postMeta span.comments a,
-.postMeta span.date a,
 .postMeta-post span.comments a,
-.postMeta-post span.date a,
 .postMeta-featured span.comments a,
 .postMeta-featured span.date a,
 .postMeta-front span.comments a,
 .postMeta-front span.date a{float:left; color:#8a8a8a; text-decoration:none}
+
+.postMeta-post span.date a,
+.postMeta span.date a{color:#8a8a8a; text-decoration:none}
 
 .postMeta span.comments,
 .postMeta-featured span.comments,
@@ -336,12 +337,12 @@ PMWIKI
 .pagegroup {display:block; margin-top: 9.3px;color: #8A8A8A; font-size:1.1em; text-transform: lowercase;text-decoration: none}
  a.createlinktext { text-decoration:none; border-bottom:none; }
 a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:bold; font-size:smaller; border-bottom:none; }
-.page-navigation{clear:both; padding:20px 0}
-.blogit-next-entries a, .blogit-previous-entries a {font-size:130%; font-weight: bold;}
-.blogit-next-entries a {float:right;}
-.blogit-previous-entries a {float:left;}
+.blogit-page-navigation{clear:both; padding:20px 0}
+.blogit-older-entries a, .blogit-newer-entries a {font-size:130%; font-weight: bold;}
+.blogit-older-entries a {float:right;}
+.blogit-newer-entries a {float:left;}
 .blogit-listmore {text-align:right;}
-.blogit-readmore {display: block;	margin-top: 10px;	padding-bottom: 10px; font-weight: bold;}
+.blogit-readmore {display: block; margin-top: 10px; padding-bottom: 10px; font-weight: bold;}
 .wikimessage {color: red; font-weight: bold; font-size: 110%; }
 #captcha { display: inline; font-weight: bold;}
 #captcha input { width: 50px;	}

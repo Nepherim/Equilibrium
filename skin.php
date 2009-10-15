@@ -37,20 +37,20 @@ elseif ( !isset($ValidSkinColors[$SkinColor]) ) $SkinColor = 'black';
 $UserStyle = $HTMLStylesFmt['equilibrium'];
 $HTMLStylesFmt['equilibrium'] =
 	'.featured .title,.latest .title,.featured .title h2 a,.latest .title h2 a'.
-		'{color:'. $ValidSkinColors[$SkinColor]['entry-title-text']. '}'.
-	'.featured-title h2 a:hover,.featured .title h2 a:hover{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].'}'.
-	'.featured .title,.latest .title{background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'}'.
+		'{color:'. $ValidSkinColors[$SkinColor]['entry-title-text']. '} '.
+	'.featured-title h2 a:hover,.featured .title h2 a:hover{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].'} '.
+	'.featured .title,.latest .title{background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'} '.
 	'p a,p a:visited,.postMeta-post a,.postMeta-post a:visited,.featured .post-content h2 a,'.
-	'.page-navigation a,.page-navigation a:visited,'.
+	'.blogit-page-topigation a,.blogit-page-topigation a:visited,'.
 	'.latest .post-content h2,#footer div a:hover,'.
 	'#comments .commentmetadata li a'.
-		'{color:'. $ValidSkinColors[$SkinColor]['text-highlight']. '}'.
-	'#sidebar a:hover,#nav a:hover,#siteheader ul a:hover,ul#nav li.current_page_item a:link,'.
-	'ul#nav li.current_page_item a:visited,ul#nav li.current_page_item a:hover,ul#nav li.current_page_item a:active,'.
+		'{color:'. $ValidSkinColors[$SkinColor]['text-highlight']. '} '.
+	'#sidebar a:hover,#top a:hover,#siteheader ul a:hover,ul#top li.current_page_item a:link,'.
+	'ul#top li.current_page_item a:visited,ul#top li.current_page_item a:hover,ul#top li.current_page_item a:active,'.
 	'#siteheader ul li.current_page_item a:link,#siteheader ul li.current_page_item a:visited,#siteheader ul li.current_page_item a:hover,'.
 	'#siteheader ul li.current_page_item a:active'.
 		'{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].
-		';background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'}'.
+		' !important;background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'} '.
 	'#siteheader .sitetitle.logo a, #siteheader .sitetitle a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['title-text']. '} ';
 
@@ -82,12 +82,11 @@ $FmtPV['$TabsBar'] = "\$GLOBALS['TmplDisplay']['PageTabsFmt']";
 Markup('notabs', 'directives',  '/\\(:notabs:\\)/ei', "SetTmplDisplay('PageTabsFmt',0)");
 $FmtPV['$SearchBar'] = "\$GLOBALS['TmplDisplay']['PageSearchFmt']";
 Markup('nosearch', 'directives',  '/\\(:nosearch:\\)/ei', "SetTmplDisplay('PageSearchFmt',0)");
+$FmtPV['$TitleGroup'] = "\$GLOBALS['TmplDisplay']['PageTitleGroupFmt']";
+Markup('notitlegroup', 'directives',  '/\\(:notitlegroup:\\)/ei', "SetTmplDisplay('PageTitleGroupFmt',0)");
+Markup('notitle', 'directives',  '/\\(:notitle:\\)/ei', "SetTmplDisplay('PageTitleFmt',0); SetTmplDisplay('PageTitleGroupFmt',0)");
 Markup('fieldset', 'inline', '/\\(:fieldset:\\)/i', "<fieldset>");
 Markup('fieldsetend', 'inline', '/\\(:fieldsetend:\\)/i', "</fieldset>");
-
-# Define a link stye for new page links
-global $LinkPageCreateFmt;
-SDV($LinkPageCreateFmt, "<a class='createlinktext' href='\$PageUrl?action=edit'>\$LinkText</a>");
 
 # Override pmwiki styles otherwise they will override styles declared in css
 global $HTMLStylesFmt;
