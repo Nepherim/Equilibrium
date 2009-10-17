@@ -64,6 +64,7 @@ if (!empty($PageLogoUrl)) {
 }
 $HTMLStylesFmt['equilibrium'] .= $UserStyle;
 
+# Allows classes on anchors
 global $WikiStyleApply;
 $WikiStyleApply['a'] = 'a';
 
@@ -74,6 +75,8 @@ $FmtPV['$WikiTitle'] = '$GLOBALS["WikiTitle"]';
 $FmtPV['$WikiTag'] = '$GLOBALS["WikiTag"]';
 
 # Move any (:noleft:) or SetTmplDisplay('PageLeftFmt', 0); directives to variables for access in jScript.
+$FmtPV['$LeftColumn'] = "\$GLOBALS['TmplDisplay']['PageLeftFmt']";
+Markup('noleft', 'directives',  '/\\(:noleft:\\)/ei', "SetTmplDisplay('PageLeftFmt',0)");
 $FmtPV['$RightColumn'] = "\$GLOBALS['TmplDisplay']['PageRightFmt']";
 Markup('noright', 'directives',  '/\\(:noright:\\)/ei', "SetTmplDisplay('PageRightFmt',0)");
 $FmtPV['$ActionBar'] = "\$GLOBALS['TmplDisplay']['PageActionFmt']";
@@ -112,7 +115,9 @@ global $SkinColor, $ValidSkinColors, $_GET;
 		$SkinColor = $default;
 	return $SkinColor;
 }
-
+function dg_PoweredBy(){
+	print ('<a href="http://pmwiki.com/'.($GLOBALS['bi_BlogIt_Enabled']?'Cookbook/BlogIt">BlogIt':'">PmWiki').'</a>');
+}
 # Determine logo height and width
 function dg_SetLogoHeightWidth ($wPad, $hPad=0){
 global $PageLogoUrl, $PageLogoUrlHeight, $PageLogoUrlWidth;
