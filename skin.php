@@ -9,8 +9,8 @@
  */
 global $FmtPV,$HTMLStylesFmt,$MarkupExpr;
 $FmtPV['$SkinName'] = '"Equilibrium"';
-$FmtPV['$SkinVersion'] = '"1.1.0"';
-$FmtPV['$SkinDate'] = '"20090929"';
+$FmtPV['$SkinVersion'] = '"1.1.1"';
+$FmtPV['$SkinDate'] = '"20091019"';
 
 $MarkupExpr['mod'] = '($args[0] % $args[1])';
 
