@@ -38,9 +38,9 @@ $UserStyle = $HTMLStylesFmt['equilibrium'];
 $HTMLStylesFmt['equilibrium'] =
 	'.featured .title,.latest .title,.featured .title h2 a,.latest .title h2 a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['entry-title-text']. '} '.
-	'.featured-title h2 a:hover,.featured .title h2 a:hover{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].'} '.
+	'.latest-title h2 a:hover,.latest .title h2 a:hover,.featured-title h2 a:hover,.featured .title h2 a:hover{color:'. $ValidSkinColors[$SkinColor]['block-highlight-text'].' !important;} '.
 	'.featured .title,.latest .title{background:'. $ValidSkinColors[$SkinColor]['block-highlight-back'].'} '.
-	'p a,p a:visited,.postMeta-post a,.postMeta-post a:visited,.featured .post-content h2 a,'.
+	'#wikitext a, #wikitext a:visited, p a,p a:visited,.postMeta-post a,.postMeta-post a:visited,.featured .post-content h2 a,'.
 	'.blogit-page-topigation a,.blogit-page-topigation a:visited,'.
 	'.latest .post-content h2,#footer div a:hover,'.
 	'#comments .commentmetadata li a'.

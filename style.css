@@ -44,12 +44,15 @@ body{font-size:62.5%; font-family:Arial,Helvetica,sans-serif; color:#222; margin
 TYPOGRAPHY
 -----------------------------------------
 */
-p, address, caption, cite, pre, code, dfn, em, strong, th, var, dt, dd
+p, address, caption, cite, pre, code, dfn, em, strong, th, var, dt, dd, tr, td
 {color:#222; font-size:1.2em; line-height:1.5; margin-top:1.5em; margin-bottom:1.5em; text-align:justify}
+td, tr {padding: .1em;}
 pre {font-size: 1.5em}
+#wikitext a, #wikitext a:visited,
 p a, p a:visited,
 .blogit-page-navigation a, .blogit-page-navigation a:visited,
 .postMeta-post a, .postMeta-post a:visited{border-bottom:1px solid #c9c9c9; text-decoration:none}
+#wikitext a, #wikitext a:visited,
 p a:hover,
 .blogit-page-navigation a:hover,
 .postMeta-post a:hover{border-bottom:1px solid #c9c9c9; color:#000; text-decoration:none}
@@ -68,6 +71,7 @@ h3 a{text-decoration:none; color:#222}
 #wikitext ol li{font-size:1.2em; margin:5px 0 5px 15px}
 
 #reply{border-bottom:4px solid #C9C9C9; color:#222; font-size:1.8em; margin-top:28px; margin-bottom:16px; padding-bottom:4px}
+#wikitext .post-head a:link, #wikitext .post-head a:visited { text-decoration:none; border:none;}
 
 /*
 -----------------------------------------
@@ -182,9 +186,6 @@ LATEST
 
 .latest-title h2 a,
 .latest .title h2 a{display:block; text-decoration:none}
-
-.latest-title h2 a:hover,
-.latest .title h2 a:hover{color:#fff}
 
 .latest-title,
 .latest .title{display:block; z-index:101; width:100%; bottom:0; filter:alpha(opacity=80); -moz-opacity:.80; opacity:.80; float:left; z-index:2}
