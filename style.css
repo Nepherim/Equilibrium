@@ -156,8 +156,8 @@ SIDEBAR
 -----------------------------------------
 */
 #sidebar{float:right; width:260px; padding-left:20px; overflow:hidden}
-#sidebar li {list-style-type: none}
-#sidebar li a{display:block; width:260px; margin:0; padding:8px 2px; list-style:none; border-bottom:1px solid #c9c9c9; font-size:1.4em; list-style-type:none; text-decoration:none; color:#222}
+#sidebar li {list-style-type: none; border-bottom: 1px solid #C9C9C9; line-height:29px; }
+#sidebar li a{width:260px; margin:0; padding:6px 2px; list-style:none; font-size:1.4em; list-style-type:none; text-decoration:none; color:#222}
 #sidebar a{color:#222; text-decoration:none}
 #sidebar h2, #sidebar .sidehead{font-size:1.8em; color:#222; text-align:right; text-transform:uppercase; border-bottom:4px solid #c9c9c9; margin-top:28px; margin-bottom:0}
 

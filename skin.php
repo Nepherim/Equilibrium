@@ -45,7 +45,7 @@ $HTMLStylesFmt['equilibrium'] =
 	'.latest .post-content h2,#footer div a:hover,'.
 	'#comments .commentmetadata li a'.
 		'{color:'. $ValidSkinColors[$SkinColor]['text-highlight']. '} '.
-	'#sidebar a:hover,#top a:hover,#siteheader ul a:hover,ul#top li.current_page_item a:link,'.
+	'#sidebar li:hover,#sidebar li:hover a,#top a:hover,#siteheader ul a:hover,ul#top li.current_page_item a:link,'.
 	'ul#top li.current_page_item a:visited,ul#top li.current_page_item a:hover,ul#top li.current_page_item a:active,'.
 	'#siteheader ul li.current_page_item a:link,#siteheader ul li.current_page_item a:visited,#siteheader ul li.current_page_item a:hover,'.
 	'#siteheader ul li.current_page_item a:active'.
