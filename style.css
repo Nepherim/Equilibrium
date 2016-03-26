@@ -286,7 +286,7 @@ COMMENTS
 #comments .commentpost p, #wikitext .commentpost p{margin-top:0}
 
 #comments .commentmetadata, #wikitext .commentmetadata{float:left; width:20%; color:#2F2B23; line-height:1.5em; padding-right:20px; color:#999; font-size:1.1em}
-#comments .commentmetadata li, #wikitext .commentmetadata li{list-style-type:none; padding:.3em; margin:0 .5em 0 0; font-size:1em;}
+#comments .commentmetadata li, #wikitext .commentmetadata li{list-style-type:none; padding:.3em 0; margin:0; font-size:1em;}
 #comments .commentmetadata li a, #wikitext .commentmetadata li a{border-bottom:1px solid #c9c9c9; text-decoration:none}
 
 #comments .warning{padding:10px; background:#282828; border:1px solid #323232; ; margin-bottom:10px}
@@ -345,6 +345,7 @@ a.createlink { text-decoration:none; position:relative; top:-0.5em; font-weight:
 .blogit-listmore {text-align:right;}
 .blogit-readmore {display: block; margin-top: 10px; padding-bottom: 10px; font-weight: bold;}
 .wikimessage {color: red; font-weight: bold; font-size: 110%; }
+.blogit-admin-links {padding-left:0 !important;}
 #captcha { display: inline; font-weight: bold;}
 #captcha input { width: 50px;	}
 #wikitext dd, #wikitext .indent { margin-left:40px; }
